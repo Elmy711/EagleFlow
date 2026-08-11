@@ -1,4 +1,4 @@
-🦅 EagleFlow – Cara Penggunaan Lengkap
+🦅 EagleFlow
 
 EagleFlow adalah alat uji ketahanan (stress test) L7 berbasis Python yang mendukung berbagai metode HTTP, multi‑threading, proxy, random parameter, mode Slowloris, dan statistik real‑time.
 Hanya untuk tujuan edukasi dan pengujian keamanan yang sah.
@@ -40,56 +40,82 @@ python eagleflow.py -t http://example.com --threads 500 --duration 30
 
 · -t, --target <URL>
     Target URL (wajib jika tidak menggunakan --config atau --targets). Tidak ada default.
+
 · --targets <file>
     File berisi daftar target (satu per baris). Tidak ada default.
+
 · --config <file>
     File konfigurasi (format JSON atau KEY=VALUE). Tidak ada default.
+
 · --threads <jumlah>
     Jumlah thread yang digunakan. Default: 400.
+
 · --sleep <detik>
     Jeda antar thread saat start (dalam detik, bisa float). Default: 0.0.
+
 · --interval <detik>
     Jeda tetap antar request per thread (dalam detik, bisa float). Default: 0.0.
+
 · --min-delay <detik>
     Jeda minimum acak antar request (detik). Jika diatur bersama --max-delay, maka interval menjadi acak. Default: tidak diatur.
+
 · --max-delay <detik>
     Jeda maksimum acak antar request (detik). Default: tidak diatur.
+
 · --duration <detik>
     Durasi serangan dalam detik. Nilai 0 berarti tidak terbatas. Default: 0.
+
 · --timeout <detik>
     Timeout koneksi per request (dalam detik). Default: 10.0.
+
 · -m, --method <METODE>
     Metode HTTP yang digunakan: GET, POST, HEAD, DELETE. Default: GET.
+
 · --data <string>
     Data yang dikirim untuk metode POST. Jika tidak diberikan dan method POST, akan digunakan data bawaan: name=test&email=test@example.com&message=Hello+from+EagleFlow.
+
 · --agent <user-agent>
     User‑Agent kustom (menonaktifkan pemilihan acak). Default: menggunakan 50 User‑Agent bawaan secara acak.
+
 · --cookie <string>
     Kirim cookie, contoh: "session=abc". Default: tidak ada.
+
 · --referer <string>
     Kirim header Referer. Default: tidak ada.
+
 · --header <"Key: Value">
     Header kustom. Dapat digunakan berulang kali untuk beberapa header. Default: tidak ada.
+
 · --proxy <URL>
     Proxy tunggal, contoh: http://proxy:8080. Default: tidak ada.
+
 · --proxies <file>
     File berisi daftar proxy (satu per baris) untuk rotasi acak. Default: tidak ada.
+
 · --random-params
     Tambahkan parameter acak (?rnd=1234) ke setiap URL. Default: False.
+
 · --slowloris
     Aktifkan mode Slowloris (mengirim header secara perlahan untuk mempertahankan koneksi). Default: False.
+
 · --payload <string>
     Payload yang disisipkan ke data POST. Default: tidak ada.
+
 · --no-verify
     Lewati verifikasi SSL. Default: False.
+
 · --verbose
     Tampilkan informasi detail setiap request (termasuk headers dan URL lengkap). Default: False.
+
 · --debug
     Aktifkan mode debug: simpan log ke file (default eagleflow_debug.log). Default: False.
-· --stats
+
+·--stats
     Tampilkan statistik real‑time setiap 5 detik selama serangan berjalan. Default: False.
+
 · --thread-stats
     (Cadangan) Tampilkan statistik per thread (belum diimplementasikan penuh). Default: False.
+
 · -o, --output <file>
     Simpan log ke file tertentu. Jika tidak ditentukan, dan --debug aktif, log akan disimpan ke eagleflow_debug.log.
 
